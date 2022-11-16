@@ -1,0 +1,10 @@
+img{
+   width: 100%;
+}
+
+.searchbutton{
+   min-height: 40px;
+   margin-left: 3px;
+   margin-top: -1px;
+   margin-right: 0px;
+}

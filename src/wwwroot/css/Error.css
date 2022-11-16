@@ -1,0 +1,20 @@
+.stranger{
+    position: fixed;
+    bottom:  50px;
+    left: 17vw;
+    z-index: 70;
+}
+
+.error{
+   text-align: center;
+   margin-top: 50px; 
+   padding-bottom: 130px;
+}
+
+@media all and (max-width: 768px) {
+
+    .stranger{
+        left: 1vw;
+    }
+
+}

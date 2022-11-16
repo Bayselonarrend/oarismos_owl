@@ -1,0 +1,10 @@
+.votebutton{
+    max-width: 45%;
+    text-wrap: break-word;
+    white-space: normal
+}
+
+.voteform{
+   content-align: center; 
+   width: 100%;
+}

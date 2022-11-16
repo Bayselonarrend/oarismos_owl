@@ -1,0 +1,18 @@
+.smallinp{
+    max-width: 85%;
+}
+
+.middle-group{
+   display:flex; 
+   content-align: center;
+}
+
+.yellow{
+   margin-bottom: 7px;
+}
+
+.list{
+   content-align: left;
+   text-align: left;
+   margin-left: 5vw;
+}

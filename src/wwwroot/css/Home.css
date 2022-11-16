@@ -1,0 +1,51 @@
+.logo {
+	display: block;
+}
+
+.logo img {
+	width: 200px;
+}
+
+.stickers{
+	margin: 50px;
+	margin-left: 70px;
+	width: 120px;
+	display: block
+	float:left;
+    border-radius: 300px; 
+    border: 3px solid black; 
+    box-shadow: 0 0 7px #666; 
+}
+
+.stickerright{
+    margin-left: 100px;
+}
+
+@media all and (max-width: 768px) {
+	
+	.logo img {
+		width: 450px;
+     }
+}
+
+@media all and (max-width: 479px) {
+	
+	.logo img {
+		width: 350px;
+	}
+
+	.stickers{
+		margin-left: 3vw;
+		margin-right: 6vw;
+	}
+
+	.stickerright{
+		margin-left: 7vw;
+	}
+}
+
+
+
+
+
+

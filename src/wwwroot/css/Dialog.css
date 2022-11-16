@@ -1,0 +1,32 @@
+dialog{
+    position: fixed;
+    padding: 20px;
+    top: 14vh;
+    border: 1px solid rgba(0,0,0,0.5); 
+    border-radius: 20px;
+    width: 90%;
+    height: 140px;
+    z-index: 999;
+    background-color: white;
+    max-width: 768px;
+    min-height: 100px;
+    opacity: 0;
+    animation: ani 0.5s forwards;
+}
+
+a{
+ cursor: pointer
+}
+
+.blackcover{
+    position: fixed;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 300;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+}

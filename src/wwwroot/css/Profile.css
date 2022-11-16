@@ -1,0 +1,96 @@
+blockquote {
+    background: none repeat scroll 0 0 #fafafa;
+    border-bottom: 3px dashed #bababa;
+    border-top: 3px dashed #bababa;
+    color: #878787;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.45;
+    padding: 20px;
+    position: relative;
+    text-align: justify;
+    margin: 4% auto;
+    min-height: 48px;
+ }
+
+blockquote:before {
+
+    content: " ";
+    font-size: 34pt;
+    text-align: center;
+    line-height: 42px;
+    color: #fff;
+    float: left;
+    position: relative;
+    top: -7px;
+    border-radius: 25px;
+    background: url(-*Викитека*-) no-repeat no-repeat;
+    display: block;
+    height: 84px;
+    width: 84px;
+    background-size: contain;
+    margin-right: 35px;
+
+ }
+
+.rarity{
+    width: 64px;
+    height: 64px;
+}
+
+.rarity-table{
+   text-align: left; 
+   width: 100%; 
+   margin-left: 3vw; 
+   margin-right: 5vw;
+}
+
+.rarity-name{
+   margin-bottom: 0px;
+}
+
+.lvl{
+    width: 15vw;
+    height: 15vw;
+    background: url("-*Уровень*-") no-repeat no-repeat center;
+		  background-size: 100% 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2.5vw;
+    font-size: 6.5vw;
+}
+
+.status{
+   width: 47vw; 
+   max-width: 400px;
+}
+
+@media all and (max-width: 768px) {
+
+    .rarity{
+	    width: 32px;
+	    height: 32px;
+    }
+
+	.profdata{
+ 		margin-top: 20px;
+	}
+}
+
+@media all and (max-width: 479px) {
+	
+    .profdata{
+        font-size: 15px;
+    }
+}
+
+
+@media all and (min-width: 1330px) {
+	
+      .controlls{
+         position: fixed;
+         bottom: 70px;
+         right: 30px;
+     }
+}
+
