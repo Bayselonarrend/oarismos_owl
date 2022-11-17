@@ -1,0 +1,20 @@
+<div class="container">
+	
+	<img src="~/img/logo_full.webp" >
+	<br>
+	<h4>Здравствуйте, @Пользователь</h4>
+	@Ошибка
+	<p>Выберите новый пароль</p>
+	
+	<form method="POST">
+
+  		<div class="form-group">
+    		<label for="exampleInputPassword1">Новый пароль</label>
+    		<input type="password"  name="password" pattern="{6,999}"class="form-control" id="exampleInputPassword1" placeholder="Пароль">
+  		</div> <br>
+
+		<button type="submit" class="btn btn-warning">Подтвердить</button>
+
+	</form>
+
+</div>

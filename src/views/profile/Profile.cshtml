@@ -1,0 +1,91 @@
+<link rel="stylesheet" type="text/css" href="~/css/profile.css">
+<link rel="stylesheet" type="text/css" href="~/css/dialog.css">
+
+<div class="container" style="text-align: center; content-align: center;">
+	
+	<table style="text-align: left;">
+  		
+		<tr>
+    		<th rowspan="2" >
+  				<div class="img_wrap">
+					<img src="$Аватар" />
+ 				</div>
+			</th>
+    		<th colspan="2" >
+				<h1 class="profdata">$Имя</h1>
+				<h6 class="status">$Статус</h6>
+			</th>
+  		</tr>
+
+ 		<tr>
+    		<td>
+				<div class="progress" >
+ 					<div class="progress-bar bg-warning" role="progressbar" style="width:$Коэффицент%" aria-valuenow="$ПБЗначение" aria-valuemin="0" aria-valuemax="$ПБКонец"></div>
+				</div>
+				<p>Ур. $Уровень | $ПБЗначение/$ПБКонец</p>
+			</td>
+		</tr>
+
+	</table>
+
+
+	<h4>कर्म: $Карма </h4>
+	<p>$ОСебе</p>
+<br>
+$Вики
+	<br><hr>
+
+	<table class="rarity-table">
+		
+		<tr>
+			<td><img src="-*Обычная*-" class="rarity"></td>
+			<td><h4 class="rarity-name">Обычных книг</h4><small>От 1990 года и младше</small></td>
+			<td><h2>$Обычные</h2></td>
+		</tr>
+
+		<tr>
+			<td><img src="-*Необычная*-" class="rarity"></td>
+			<td><h4 class="rarity-name">Необычных книг</h4><small>Между 1975 и 1990 годами</small></td>
+			<td><h2>$Необычные</h2></td>
+		</tr>
+
+		<tr>
+			<td><img src="-*Редкая*-" class="rarity"></td>
+			<td><h4 class="rarity-name">Редких книг</h4><small>Между 1950 и 1975 годами</small></td>
+			<td><h2>$Редкие</h2></td>
+		</tr>
+
+		<tr>
+			<td><img src="-*Эпическая*-" class="rarity"></td>
+			<td><h4 class="rarity-name">Эпических книг</h4><small>Между 1920 и 1950 годами</small></td>
+			<td><h2>$Эпические</h2></td>
+		</tr>
+
+		<tr>
+			<td><img src="-*Легендарная*-" class="rarity"></td>
+			<td><h4 class="rarity-name">Легендарных книг</h4><small>Старше 1920 года</small></td>
+			<td><h2>$Легендарные</h2></td>
+		</tr>
+
+	</table>
+
+	<br><br>
+<div class="controlls">
+	<a href="-?Лидеры?-"><button type="button" class="btn btn-outline-secondary oi-bar-chart oi" style="top: 0px"></button></a>
+	<a href="-?СвойКаталог?-?u=$Код"><button type="button" class="btn btn-outline-secondary oi oi-book" style="top: 0px"></button></a>
+	$Кнопки
+	</div>
+	<div id=bc class="blackcover"></div>
+
+ 	<dialog>
+   		<p>Выйти из аккаунта?</p>
+   		<p>
+			<a href="-?Выход?-"><button type="button" class="btn btn-warning" >Да</button></a>
+			<button id="closeDialog" type="button" class="btn btn-outline-secondary " style="top: 0px" >Нет</button>
+		</p>
+ 	</dialog>
+
+</div>
+
+
+

@@ -1,0 +1,61 @@
+<link rel="stylesheet" type="text/css" href="~/css/auth.css">
+<link rel="stylesheet" type="text/css" href="~/css/dialog.css">
+
+<div class="container">
+
+	<div style="width: 100%; text-align: center" ><img src="-*Большое лого*-" alt="Oarismos" style="width: 40vw;"></div>
+	<form method="POST">
+
+		@Ошибка
+
+  		<div class="form-group fields">
+			<label for="InputEmail">Почта</label>
+    		<input type="email" name="email" class="form-control" id="InputEmail"  placeholder="Ваша почта" value="@Почта" required>
+  		</div>
+
+  		<div class="form-group">
+    		<label for="InputPassword">Пароль</label>
+    		<input type="password"  name="password" class="form-control" id="InputPassword" placeholder="Пароль" required>
+  		</div>
+
+		<br>
+		<div class="h-captcha" data-sitekey="52ea3eed-3b41-4992-aab0-8b88ada5fb89"></div>
+		<br>
+
+  		<button type="submit" class="btn btn-warning controls">Войти</button>
+		<button id="openDialog" type="button" class="btn btn-outline-dark controls">Забыли пароль?</button> 
+
+	</form>
+
+<br><hr>
+<div style="width: 100%; text-align: center">
+		<a href="@Викитека"><img src="-*Викивход*-" class="wauth" alt="Войти при помощи Wikisource"></a>
+</div>
+<hr><br>
+
+	<div style="text-align:center">
+		<h3>Еще нет аккаунта?</h3>
+		<p>Создадим его прямо сейчас?</p>
+		<a href="auth/registration"><button type="button" class="btn btn-warning">Да!</button></a>
+	</div>
+
+<br><br>
+
+		<div id=bc class="blackcover"></div>
+  			<dialog>
+				<form method="POST">
+
+  					<div class="form-group">
+    					<label for="InputRecover">Почта</label>
+    					<input type="email" required name="emailrec" class="form-control" id="InputRecover" aria-describedby="emailHelp" placeholder="Ваша почта" value="" required>
+    					<small id="emailHelp" class="form-text text-muted">.</small>
+  					</div>
+					<p>
+						<button type="submit" class="btn btn-warning" >Отправить письмо</button>
+						<button id="closeDialog" type="button" class="btn btn-outline-secondary " style="top: 0px" >Отмена</button>
+					</p>
+				</form>
+  			</dialog>
+		</div>
+
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
