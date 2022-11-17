@@ -1,0 +1,555 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OneScript.WebHost</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "T:OneScript.WebHost.Application.ApplicationInstance" -->
+        <member name="M:OneScript.WebHost.Application.ApplicationInstance.UseErrorHandler(System.String)">
+            <summary>
+            Добавляет компонент конвейера, отвечающий за обработку исключений
+            </summary>
+            <param name="errorRoute">Маршрут URL, который будет отображаться при возникновении исключения</param>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ApplicationInstance.UseStaticFiles">
+            <summary>
+            Добавляет компонент конвейера, отвечающий за выдачу статического содержимого (картинок, скриптов, стилей и т.п.)
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ApplicationInstance.UseMvcRoutes(System.String)">
+            <summary>
+            Добавляет компонент конвейера, отвечающий за обработку MVC-маршрутов, контроллеры и представления.
+            По умолчанию добавляется маршрут /{controller=home}/{action=index}/{id?}.
+            В метод можно передать имя процедуры-обработчика, в которой можно будет перенастроить шаблоны URL.
+            </summary>
+            <param name="handler">Имя процедуры-обработчика, в которой будет настраиваться маршрутизация.</param>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ApplicationInstance.UseMiddleware(System.String)">
+            <summary>
+            Добавляет middleware в конвейер.
+            В метод нужно передать имя файла скрипта относительно /app, в котором лежит обработчик middleware.
+            </summary>
+            <param name="scriptName">Имя скрипта-обработчика, который будет вызываться.</param>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ApplicationInstance.UseSessions">
+            <summary>
+            Использовать обработчик cookies, отвечающих за клиентские сессии. Позволяет применять http-сессии в контроллерах
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ApplicationInstance.UseAuthorization">
+            <summary>
+            Использовать обработчик cookies, отвечающих за клиентскую аутентификацию.
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ApplicationInstance.UseBackgroundJobs">
+            <summary>
+            Разрешает использование фоновых и регламентных заданий. Запускает сервер обслуживания заданий Hangfire.
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.CookieOptionsWraper.SetExpiration(ScriptEngine.Machine.IValue)">
+            <summary>
+            Устанавливает срок действия Cookie
+            <param name="offset">Строка. Срок действия в формате .NET см. https://msdn.microsoft.com/ru-ru/library/bb351654(v=vs.110).aspx </param>
+            </summary>
+            <param name="offset"></param>
+        </member>
+        <member name="T:OneScript.WebHost.Application.FormDataCollectionContext">
+            <summary>
+            Значения полей формы во входящем запросе.
+            Обращения к полям формы выполняется с помощью оператора [].
+            В качестве индекса используется имя поля.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.FormDataCollectionContext.Files">
+            <summary>
+            Коллекция загружаемых файлов (upload)
+            </summary>
+        </member>
+        <member name="T:OneScript.WebHost.Application.FormFileContext">
+            <summary>
+            Описание файла формы
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.FormFileContext.Name">
+            <summary>
+            Имя поля формы, в котором был получен данный файл
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.FormFileContext.FileName">
+            <summary>
+            Имя переданного файла, как указано в заголовке Content-Disposition
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.FormFileContext.Headers">
+            <summary>
+            Заголовки данного файла.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.FormFileContext.ContentType">
+            <summary>
+            Значение заголовка Content-type для данного файла.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.FormFileContext.ContentDisposition">
+            <summary>
+            Значение заголовка Content-disposition для данного файла.
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.FormFileContext.OpenReadStream">
+            <summary>
+            Открывает поток для чтения содержимого файла
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:OneScript.WebHost.Application.FormFilesCollectionContext">
+            <summary>
+            Коллекция переданных с клиента файлов.
+            Обращение к коллекции возможно по числовому индексу или имени поля-файла.
+            </summary>
+        </member>
+        <member name="T:OneScript.WebHost.Application.HttpRequestImpl">
+            <summary>
+            Описание входящего запроса HTTP
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpRequestImpl.Headers">
+            <summary>
+            ФиксированноеСоответствие. Заголовки входящего запроса
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpRequestImpl.Cookies">
+            <summary>
+            ФиксированноеСоответствие. Cookies входящего запроса
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.HttpRequestImpl.GetBodyAsStream">
+            <summary>
+            Получение тела запроса в виде потока для чтения
+            </summary>
+            <returns>Поток</returns>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpRequestImpl.FormData">
+            <summary>
+            Коллекция переменных, переданных в качестве данных формы
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpRequestImpl.Method">
+            <summary>
+            Текущий метод HTTP
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpRequestImpl.QueryString">
+            <summary>
+            Текущая строка запроса (QueryString)
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.HttpRequestImpl.QueryParameters">
+            <summary>
+            Коллекция параметров запроса (из СтрокиЗапроса)
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpRequestImpl.Path">
+            <summary>
+            Путь текущего ресурса
+            </summary>
+        </member>
+        <member name="T:OneScript.WebHost.Application.HttpResponseImpl">
+            <summary>
+            Описание исходящего HTTP-ответа
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpResponseImpl.Headers">
+            <summary>
+            Фиксированное соответствие. Заголовки исходящего запроса.
+            Для установки заголовков см. метод УстановитьЗаголовки.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpResponseImpl.StatusCode">
+            <summary>
+            Возвращаемый код состояния.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpResponseImpl.ContentType">
+            <summary>
+            Возвращаемый тип содержимого (Content-type)
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.HttpResponseImpl.HasStarted">
+            <summary>
+            Показывает, была ли начата отправка ответа клиенту.
+            Если да, то модификация ответа (установка тела или заголовков) приведёт к исключению.
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.HttpResponseImpl.SetHeaders(ScriptEngine.HostedScript.Library.MapImpl)">
+            <summary>
+            Устанавливает заголовки текущего ответа
+            </summary>
+            <param name="headers">Соответствие. Устанавливаемые заголовки</param>
+        </member>
+        <member name="M:OneScript.WebHost.Application.HttpResponseImpl.SetCookie(System.String,System.String,OneScript.WebHost.Application.CookieOptionsWraper)">
+            <summary>
+            Добавляет значение Cookie в ответ
+            </summary>
+            <param name="key">Имя параметра</param>
+            <param name="value">Значение параметра</param>
+            <param name="options">Опции Cookie</param>
+        </member>
+        <member name="M:OneScript.WebHost.Application.HttpResponseImpl.RemoveCookie(System.String,OneScript.WebHost.Application.CookieOptionsWraper)">
+            <summary>
+            Удаление значения Cookie
+            </summary>
+            <param name="key">Имя параметра</param>
+            <param name="options">Опции Cookie</param>
+        </member>
+        <member name="M:OneScript.WebHost.Application.HttpResponseImpl.GetBodyAsStream">
+            <summary>
+            Открывает Поток, применяемый для наполнения тела ответа.
+            </summary>
+            <returns>Поток</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.HttpResponseImpl.SetBodyFromString(System.String,ScriptEngine.Machine.IValue)">
+            <summary>
+            Устанавливает тело ответа из строки с заданной кодировкой.
+            </summary>
+            <param name="body">Тело ответа</param>
+            <param name="encoding">Кодировка текста ответа</param>
+        </member>
+        <member name="M:OneScript.WebHost.Application.HttpResponseImpl.SetBodyFromBinaryData(ScriptEngine.HostedScript.Library.Binary.BinaryDataContext)">
+            <summary>
+            Устанавливает ДвоичныеДанные в качестве тела ответа
+            </summary>
+            <param name="data">Данные</param>
+        </member>
+        <member name="T:OneScript.WebHost.Application.RoutesCollectionContext">
+            <summary>
+            Класс предназначен для описания URL-шаблонов, по которым будет откликаться веб-приложение.
+             Пример шаблона с 3-мя переменными. Переменные controller и action являются предопределенными.
+            /{controller}/{action}/{id?}
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.RoutesCollectionContext.Add(System.String,System.String,ScriptEngine.HostedScript.Library.MapImpl)">
+            <summary>
+            Добавление шаблона URL в коллекцию.
+            </summary>
+            <param name="name">Имя маршрута. Позволяет строить исходящие URL по заданному шаблону</param>
+            <param name="template">Шаблон адреса. Формируется по правилам шаблонов ASP.NET MVC Core</param>
+            <param name="defaults">Соответствие. Определяет значения по-умолчанию для переменных маршрута.</param>
+            <example>
+            Умолчания = Новый Соответствие;
+            Умолчания.Вставить("shopId", 12344); // если магазин не указан - взять магазин 12344
+            КоллекцияМаршрутов.Добавить("ПоМагазину","{controller}/{action}/{shopId}", Умолчания);
+            </example>
+        </member>
+        <member name="T:OneScript.WebHost.Application.ScriptedController">
+            <summary>
+            Главный класс, отвечающий за обработку входящего запроса и генерацию ответа.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedController.HttpRequest">
+            <summary>
+            Входящий запрос HTTP
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedController.HttpResponse">
+            <summary>
+            Исходящий ответ HTTP
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedController.RouteValues">
+            <summary>
+            Действующие значения маршрута для текущего вызова.
+            Тип: Соответствие или Неопределено.
+            Ключами соответствия являются переменные маршрута.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedController.Session">
+            <summary>
+            Данные http-сессии. Механизм сессий использует Cookies для привязки сессии и InMemory хранилище для данных сессии.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedController.ViewData">
+            <summary>
+            Специализированный объект, предназначенный для передачи данных в генерируемое Представление.
+            Элементы коллекции доступны в Представлении через свойства ViewBag и ViewData.
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedController.View(ScriptEngine.Machine.IValue,ScriptEngine.Machine.IValue)">
+            <summary>
+            Вспомогательный метод генерации ответа в виде представления.
+            </summary>
+            <param name="nameOrModel">Имя представления или объект Модели (если используется представление по умолчанию)</param>
+            <param name="model">Объект модели (произвольный)</param>
+            <returns>РезультатДействияПредставление.</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedController.Content(System.String,System.String)">
+            <summary>
+            Вспомогательный метод генерации ответа в виде текстового содержимого
+            </summary>
+            <param name="content">Содержимое ответа</param>
+            <param name="contentType">Кодировка текста ответа</param>
+            <returns>РезультатДействияСодержимое</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedController.File(ScriptEngine.Machine.IValue,System.String,System.String)">
+            <summary>
+            Вспомогательный метод генерации ответа в виде скачиваемого файла.
+            </summary>
+            <param name="data">Данные файла (путь или ДвоичныеДанные)</param>
+            <param name="contentType">Содержимое заголовка Content-type</param>
+            <param name="downloadFileName">Имя скачиваемого файла</param>
+            <returns>РезультатДействияФайл</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedController.StatusCode(System.Int32)">
+            <summary>
+            Вспомогательный метод, генерирующий код состояния HTTP
+            </summary>
+            <param name="code">Код состояния</param>
+            <returns>РезультатДействияКодСостояния</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedController.Redirect(System.String,System.Boolean)">
+            <summary>
+            Вспомогательный метод, генерирующий ответ в виде http-редиректа
+            </summary>
+            <param name="url">Адрес перенаправления</param>
+            <param name="permanent">Признак постоянного (permanent) перенаправления.</param>
+            <returns>РезультатДействияПеренаправление</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedController.RedirectToAction(System.String,System.String,ScriptEngine.HostedScript.Library.StructureImpl,System.Boolean)">
+            <summary>
+            Вспомогательный метод, генерирующий ответ в виде http-редиректа
+            </summary>
+            <param name="action">Имя действия перенаправления</param>
+            <param name="controller">Контроллер перенаправления</param>
+            <param name="fields">Дополнительные поля</param>
+            <param name="permanent">Признак постоянного (permanent) перенаправления.</param>
+            <returns>РезультатДействияПеренаправление</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedController.RouteUrl(System.String,ScriptEngine.HostedScript.Library.StructureImpl)">
+            <summary>
+            Генерирует URL для маршрута, заданного в приложении.
+            Параметр routeName позволяет жестко привязать генерацию адреса к конкретному маршруту
+            </summary>
+            <param name="routeName">Строка. Имя маршрута</param>
+            <param name="fields">Структура. Поля маршрута в виде структуры.</param>
+            <returns>РезультатДействияПеренаправление</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedController.ActionUrl(System.String,ScriptEngine.Machine.IValue)">
+            <summary>
+            Генерирует Url для действия в контроллере
+            </summary>
+            <param name="action">Имя действия</param>
+            <param name="fieldsOrController">Имя контроллера строкой или структура/соответствие полей маршрута.</param>
+            <returns></returns>
+        </member>
+        <member name="T:OneScript.WebHost.Application.ScriptedMiddleware">
+            <summary>
+            Экземпляр посредника. Представлен произвольным скриптом в структуре приложения.
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,ScriptEngine.Machine.LoadedModule,OneScript.WebHost.Infrastructure.IApplicationRuntime)">
+            <summary>
+            Конструктор посредника
+            </summary>
+            <param name="next">Следующий обработчик в конвейере</param>
+            <param name="module">Скомпилированный модуль посредника</param>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedMiddleware.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Основная нагрузка, выполняет метод ОбработкаВызова посредника
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedMiddleware.HttpRequest">
+            <summary>
+            Входящий запрос HTTP
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedMiddleware.HttpResponse">
+            <summary>
+            Исходящий ответ HTTP
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedMiddleware.InvokeNext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedViewComponent.HttpRequest">
+            <summary>
+            Входящий запрос HTTP
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedViewComponent.HttpResponse">
+            <summary>
+            Исходящий ответ HTTP
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedViewComponent.RouteValues">
+            <summary>
+            Действующие значения маршрута для текущего вызова.
+            Тип: Соответствие или Неопределено.
+            Ключами соответствия являются переменные маршрута.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedViewComponent.Session">
+            <summary>
+            Данные http-сессии. Механизм сессий использует Cookies для привязки сессии и InMemory хранилище для данных сессии.
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Application.ScriptedViewComponent.ViewData">
+            <summary>
+            Специализированный объект, предназначенный для передачи данных в генерируемое Представление.
+            Элементы коллекции доступны в Представлении через свойства ViewBag и ViewData.
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedViewComponent.RouteUrl(System.String,ScriptEngine.HostedScript.Library.StructureImpl)">
+            <summary>
+            Генерирует URL для маршрута, заданного в приложении.
+            Параметр routeName позволяет жестко привязать генерацию адреса к конкретному маршруту
+            </summary>
+            <param name="routeName">Строка. Имя маршрута</param>
+            <param name="fields">Структура. Поля маршрута в виде структуры.</param>
+            <returns>РезультатДействияПеренаправление</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedViewComponent.ActionUrl(System.String,ScriptEngine.Machine.IValue)">
+            <summary>
+            Генерирует Url для действия в контроллере
+            </summary>
+            <param name="action">Имя действия</param>
+            <param name="fieldsOrController">Имя контроллера строкой или структура полей маршрута.</param>
+            <returns></returns>
+        </member>
+        <member name="M:OneScript.WebHost.Application.ScriptedViewComponent.View(ScriptEngine.Machine.IValue,ScriptEngine.Machine.IValue)">
+            <summary>
+            Вспомогательный метод генерации ответа в виде представления.
+            </summary>
+            <param name="nameOrModel">Имя представления или объект Модели (если используется представление по умолчанию)</param>
+            <param name="model">Объект модели (произвольный)</param>
+            <returns>РезультатКомпонентаПредставление.</returns>
+        </member>
+        <member name="P:OneScript.WebHost.Infrastructure.SessionImpl.IsAvailable">
+            <summary>
+            Возвращает Истина, если пользовательская сессия была инициирована
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Infrastructure.SessionImpl.Identifier">
+            <summary>
+            Идентификатор сессии
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Infrastructure.SessionImpl.GetKeys">
+            <summary>
+            Метод получает набор ключей, сохраненных в сессии
+            </summary>
+            <returns>Массив ключей</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Infrastructure.SessionImpl.GetString(System.String)">
+            <summary>
+            Получить строковое значение из сессии
+            </summary>
+            <param name="key">Ключ значения</param>
+            <returns></returns>
+        </member>
+        <member name="M:OneScript.WebHost.Infrastructure.SessionImpl.SetString(System.String,System.String)">
+            <summary>
+            Установить строковое значение в сессию
+            </summary>
+            <param name="key">Ключ значения</param>
+            <param name="value">Устанавливаемое значение</param>
+        </member>
+        <member name="M:OneScript.WebHost.Infrastructure.SessionImpl.GetNumber(System.String)">
+            <summary>
+            Получить числовое значение из сессии
+            </summary>
+            <param name="key">Ключ значения</param>
+            <returns></returns>
+        </member>
+        <member name="M:OneScript.WebHost.Infrastructure.SessionImpl.SetNumber(System.String,System.Int32)">
+            <summary>
+            Установить числовое значение в сессию
+            </summary>
+            <param name="key">Ключ значения</param>
+            <param name="value">Устанавливаемое значение</param>
+        </member>
+        <member name="M:OneScript.WebHost.Infrastructure.SessionImpl.Clear">
+            <summary>
+            Очистить все значения сессии
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Infrastructure.SessionImpl.Remove(System.String)">
+            <summary>
+            Удалить значение из сессии
+            </summary>
+            <param name="key">Ключ значения</param>
+        </member>
+        <member name="T:OneScript.WebHost.Infrastructure.ScriptedMiddlewareExtension">
+            <summary>
+            Расширение для создания посредников
+            </summary>
+        </member>
+        <member name="T:OneScript.WebHost.Database.DbQueryContext">
+            <summary>
+            Запрос к информационной базе. Используется только если создана конфигурация соединения с ИБ
+            </summary>
+        </member>
+        <member name="P:OneScript.WebHost.Database.DbQueryContext.Text">
+            <summary>
+            Содержит исходный текст выполняемого запроса.
+            </summary>
+            <value>Строка</value>
+        </member>
+        <member name="M:OneScript.WebHost.Database.DbQueryContext.Execute">
+            <summary>
+            Выполняет запрос к базе данных. 
+            </summary>
+            <returns>РезультатЗапроса</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Database.DbQueryContext.ExecuteCommand">
+            <summary>
+            Выполняет запрос на модификацию к базе данных. 
+            </summary>
+            <returns>Число - Число обработанных строк.</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Database.DbQueryContext.SetParameter(System.String,ScriptEngine.Machine.IValue)">
+            <summary>
+            Устанавливает параметр запроса. Параметры доступны для обращения в тексте запроса. 
+            С помощью этого метода можно передавать переменные в запрос, например, для использования в условиях запроса.
+            ВАЖНО: В запросе имя параметра указывается с использованием '@'.
+            </summary>
+            <example>
+            Запрос.Текст = "select * from mytable where category_id = @category_id";
+            Запрос.УстановитьПараметр("category_id", 1);
+            </example>
+            <param name="parametrName">Строка - Имя параметра</param>
+            <param name="parametrValue">Произвольный - Значение параметра</param>
+        </member>
+        <member name="T:OneScript.WebHost.Database.InfobaseContext">
+            <summary>
+            Обертка соединения с информационной базой
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Database.InfobaseContext.NewQuery">
+            <summary>
+            Создает новый запрос к базе данных
+            </summary>
+            <returns>Запрос.</returns>
+        </member>
+        <member name="T:OneScript.WebHost.Database.QueryResult">
+            <summary>
+            Содержит результат выполнения запроса. Предназначен для хранения и обработки полученных данных.
+            </summary>
+        </member>
+        <member name="M:OneScript.WebHost.Database.QueryResult.Unload">
+            <summary>
+            Создает таблицу значений и копирует в нее все записи набора.
+            </summary>
+            <returns>ТаблицаЗначений</returns>
+        </member>
+        <member name="M:OneScript.WebHost.Database.QueryResult.IsEmpty">
+            <summary>
+            Возвращает Истина, если в результате запроса нет ни одной записи.
+            </summary>
+            <returns>Булево</returns>
+        </member>
+    </members>
+</doc>
